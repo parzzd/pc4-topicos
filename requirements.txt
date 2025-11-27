@@ -1,0 +1,8 @@
+spade==4.1.2
+nest-asyncio==1.6.0
+async-lru==2.0.5
+asttokens==3.0.0
+aiohappyeyeballs==2.6.1
+aiohttp==3.10.4
+requests==2.32.3
+threadpoolctl==3.6.0

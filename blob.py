@@ -4,18 +4,6 @@ from spade.behaviour import PeriodicBehaviour
 from spade.message import Message
 
 
-def spawn_on_edge(width, height):
-    side = random.choice(["top", "bottom", "left", "right"])
-
-    if side == "top":
-        return random.randint(0, width), 0
-    if side == "bottom":
-        return random.randint(0, width), height
-    if side == "left":
-        return 0, random.randint(0, height)
-    if side == "right":
-        return width, random.randint(0, height)
-
 
 class BlobAgent(Agent):
 
@@ -113,8 +101,6 @@ class BlobAgent(Agent):
         self.worldWidth = 1500
         self.worldHeight = 900
 
-        if not hasattr(self, "x"):
-            self.x, self.y = spawn_on_edge(self.worldWidth, self.worldHeight)
 
         self.home_x = self.x
         self.home_y = self.y

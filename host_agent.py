@@ -118,11 +118,9 @@ class Blob:
             self.upgrade = True
 
             if random.random() < 0.5:
-                # mutación de velocidad
                 self.speed += 0.5
                 self.mutation_type = "speed"
             else:
-                # mutación de energía
                 self.energy += 30
                 self.mutation_type = "energy"
 
@@ -143,7 +141,7 @@ class Blob:
 
 
 async def one_day(blobs):
-    print("Nuevo día iniciado...")
+    print("Se inicia nuevo dia")
 
     foods.clear()
     for _ in range(COMIDAS):
@@ -163,7 +161,7 @@ async def one_day(blobs):
         await asyncio.sleep(0.05)
 
     survivors = [b for b in blobs if b.food_eaten >= 1]
-    print("Sobrevivientes:", len(survivors))
+    print("han sobrevivido:", len(survivors))
 
     children = []
     for parent in survivors:

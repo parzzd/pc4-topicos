@@ -57,10 +57,8 @@ class EnvironmentAgent(Agent):
         async def run(self):
             self.agent.update_food()
 
-            # spawnear hijos solicitados
             await self.agent.spawn_children()
 
-            # revisar si todos murieron
             await self.agent.check_population()
 
 
@@ -95,7 +93,6 @@ class EnvironmentAgent(Agent):
             new_blob = BlobAgent(new_jid, "1234")
             new_blob.environment_jid = str(self.jid)
 
-            # Herencia genética
             new_blob.speed = speed
             new_blob.energy = energy
             new_blob.upgrade = upgrade
@@ -108,7 +105,7 @@ class EnvironmentAgent(Agent):
                 "upgrade": upgrade
             }
 
-            print(f"[ENV] Nuevo hijo creado: {new_jid}")
+            print(f"nuevo hijo creado: {new_jid}")
 
         self.pending_children = []
 
@@ -116,7 +113,7 @@ class EnvironmentAgent(Agent):
         alive = [b for b in self.state.values() if b["alive"]]
 
         if len(alive) == 0:
-            print("TODOS MURIERON. REINICIANDO POBLACIÓN.")
+            print("HAN MUERTO. REINICIANDO")
 
             self.state = {}
 
